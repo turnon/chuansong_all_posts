@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         chuansong-all-posts
 // @namespace    https://github.com/turnon/chuansong_all_posts
-// @version      0.0.2
+// @version      0.0.3
 // @description  auto load posts on chuansong.me
 // @author       block24block@gmail.com
 // @match        http://chuansong.me/account/*
@@ -19,6 +19,9 @@ Ateles(['page_loader'], function (page_loader) {
         append_page: function (data) {
             let $posts = $(data).find('.main_col')
             $('.main_col').last().after($posts)
+        },
+        break_at: function (n) {
+            return n >= 10;
         },
         interval: function () {
             return 2000;
